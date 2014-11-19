@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+using Tacopajen.Database;
 using Tacopajen.Models;
 
 namespace Tacopajen.Controllers
@@ -6,15 +8,16 @@ namespace Tacopajen.Controllers
     public class HomeController : Controller
     {
 
-        public ActionResult Index(string id)
+        public ActionResult Index()
         {
+            const string id = "FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA83";
             var dbcon = new Db();
-            var model = new RecipeViewModel
-            {
-                OtheRecipes = dbcon.GetAllRecipe(),
-                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
-                Ingredients = dbcon.GetAllIngredients(Guid.Parse(id))
-            };
+            var model = new RecipeViewModel();
+
+            model.OtheRecipes = dbcon.GetAllRecipe();
+            model.Recipe = dbcon.GetRecipe(Guid.Parse(id));
+            model.Ingredients = dbcon.GetAllIngredients(Guid.Parse(id));
+            
 
             return View(model);
         }
@@ -23,7 +26,7 @@ namespace Tacopajen.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View(new CommentModel());
+            return View();
         }
 
     }

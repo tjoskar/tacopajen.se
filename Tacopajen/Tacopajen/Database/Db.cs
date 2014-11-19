@@ -104,17 +104,20 @@ namespace Tacopajen.Database
         public Recipe GetRecipe(Guid guid)
         {
             OpenConnection();
-            var sql = "Select * from Recipe Where id ="+guid;
+            var sql = "Select * from Recipe Where id = '" + guid.ToString()+"'";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
-            dataReader.Read();
-            var recipe = new Recipe()
+            Recipe recipe = null;
+            while (dataReader.Read())
             {
-                Description = dataReader["Description"].ToString(),
-                Id = dataReader["id"].ToString(),
-                ImgUrl = dataReader["ImageUrl"].ToString(),
-                Name = dataReader["Name"].ToString()
-            };
+                recipe = new Recipe()
+                {
+                    Description = dataReader["Description"].ToString(),
+                    Id = dataReader["id"].ToString(),
+                    ImgUrl = dataReader["ImageUrl"].ToString(),
+                    Name = dataReader["Name"].ToString()
+                };
+            }
             CloseConnection();
             return recipe;
         }
@@ -122,7 +125,7 @@ namespace Tacopajen.Database
         public TotalIngredients GetAllIngredients(Guid guid)
         {
             OpenConnection();
-            var sql = "Select * from Ingredients Where Recipe ="+guid;
+            var sql = "Select * from Ingredients Where Recipe ='"+guid+"'";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
 

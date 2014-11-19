@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Tacopajen.Models.RecipeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -17,7 +18,7 @@
     </header>
 
     <div class="cover-img">
-        <h1>Tacopaj</h1>
+        <h1>@Model.Recipe.Name</h1>
     </div>
 
     <div class="wrapper">
@@ -25,27 +26,26 @@
             <h1>Ingredienser</h1>
             <h3>Pajdeg</h3>
             <ul>
-                <li>2dl mjöl</li>
-                <li>5dl mjölk</li>
-                <li>1tsk salt</li>
-                <li>1msk vatten</li>
+                @foreach (var ingredient in Model.Ingredients.Deg)
+                {
+
+                    <li>@ingredient.IngredientName, @ingredient.Quantity</li>
+                }
             </ul>
 
             <h3>Fyllning</h3>
             <ul>
-                <li>10dl ost</li>
-                <li>1dl mjölk</li>
-                <li>1st ägg</li>
+                @foreach (var ingredient in Model.Ingredients.Fyll)
+                {
+                    <li>@ingredient.IngredientName, @ingredient.Quantity</li>
+                }
             </ul>
         </div>
 
         <div class="main-content">
             <h1>Gör så här</h1>
-            <p>Sätt ugnen på 225°. Hacka ihop smör, mjöl och paprikapulver till en grynig massa, för hand eller i matberedare. Tillsätt vatten och arbeta snabbt ihop till en smidig deg. Tryck ut degen i en pajform eller ugnsfast form, ca 30 cm i diameter. Gör några hål i degen med en gaffel. Ställ formen i kyl ca 30 min. Förgrädda pajskalet i mitten av ugnen ca 12 min.
-            Bryn köttfärsen i smör. Tillsätt tacokrydda och vatten, låt koka ca 5 min. Blanda smaksatt crème fraiche med naturell crème fraiche i en skål. Halvera tomaterna och låt bitarna med chili rinna av. Fyll pajskalet med färs och bred på crème fraiche blandningen. Täck med tomathalvor och chili, strö över ost och pudra till sist över paprikapulver. Grädda pajen i mitten av ugnen ca 25 min, tills osten fått fin färg. Servera med gräddfil och tacochips.</p>
-            <p>Sätt ugnen på 225°. Hacka ihop smör, mjöl och paprikapulver till en grynig massa, för hand eller i matberedare. Tillsätt vatten och arbeta snabbt ihop till en smidig deg. Tryck ut degen i en pajform eller ugnsfast form, ca 30 cm i diameter. Gör några hål i degen med en gaffel. Ställ formen i kyl ca 30 min. Förgrädda pajskalet i mitten av ugnen ca 12 min.
-            Bryn köttfärsen i smör. Tillsätt tacokrydda och vatten, låt koka ca 5 min. Blanda smaksatt crème fraiche med naturell crème fraiche i en skål. Halvera tomaterna och låt bitarna med chili rinna av. Fyll pajskalet med färs och bred på crème fraiche blandningen. Täck med tomathalvor och chili, strö över ost och pudra till sist över paprikapulver. Grädda pajen i mitten av ugnen ca 25 min, tills osten fått fin färg. Servera med gräddfil och tacochips.</p>
-        </div>
+            <p>@Model.Recipe.Description</p>
+           </div>
     </div>
 
 

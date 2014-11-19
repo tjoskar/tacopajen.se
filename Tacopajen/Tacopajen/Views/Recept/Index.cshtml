@@ -1,0 +1,33 @@
+﻿@model Tacopajen.Models.RecipeListViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="main">
+    <header>
+        <h1 class="logo">Tacopajen</h1>
+        <nav class="header-menu">
+            <ul>
+                <li><a href="/">Grundrecept</a></li>
+                <li><a href="/recept">LCHF</a></li>
+                <li><a href="/recept">Vegitarisk</a></li>
+                <li><a href="/recept">Andra typer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cover-img">
+        <h1>Recept</h1>
+    </div>
+
+    <div class="wrapper">
+        <div class="main-content">
+            @foreach (var recipe in Model.Recipes)
+            {
+                <div>@recipe.Name</div>
+                <div>@recipe.Description</div>
+                <div>@recipe.ImgUrl</div>
+            }
+        </div>
+    </div>
+</div>

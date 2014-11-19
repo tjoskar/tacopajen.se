@@ -6,7 +6,7 @@ using Tacopajen.Models;
 
 namespace Tacopajen.Controllers
 {
-    public class RecipeController : Controller
+    public class ReceptController : Controller
     {
         // GET: Recipe
         public ActionResult Index()

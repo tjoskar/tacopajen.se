@@ -119,24 +119,40 @@ namespace Tacopajen.Database
             return recipe;
         }
 
-        public List<Ingredient> GetAllIngredientsfor(Guid guid)
+        public TotalIngredients GetAllIngredients(Guid guid)
         {
             OpenConnection();
             var sql = "Select * from Ingredients Where Recipe ="+guid;
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
-            var list = new List<Ingredient>();
+
+            var listDeg = new List<Ingredient>();
+            var listFyll = new List<Ingredient>();
+            var ingredients = new TotalIngredients();
             while (dataReader.Read())
             {
-                list.Add(new Ingredient()
+                if (dataReader["Category"].Equals("Pajdeg"))
                 {
-                    IngredientName = dataReader["Name"].ToString(),
-                    Quantity = dataReader["Quantity"].ToString()
+                    listDeg.Add(new Ingredient()
+                    {
+                        IngredientName = dataReader["Name"].ToString(),
+                        Quantity = dataReader["Quantity"].ToString()
+                    });
                 }
-                    );
+                else
+                {
+                    listFyll.Add(new Ingredient()
+                    {
+                        IngredientName = dataReader["Name"].ToString(),
+                        Quantity = dataReader["Quantity"].ToString()
+                    });
+                }
+                ingredients.Deg = listDeg;
+                ingredients.Fyll = listFyll;
+
             }
             CloseConnection();
-            return list;
+            return ingredients;
         }
     }
 }

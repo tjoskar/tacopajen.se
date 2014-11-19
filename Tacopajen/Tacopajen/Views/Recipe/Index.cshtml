@@ -1,0 +1,12 @@
+﻿@model Tacopajen.Models.RecipeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (var recipe in Model.Recipes)
+{  
+        <div>@recipe.Name</div>
+        <div>@recipe.Description</div>
+        <div>@recipe.ImgUrl</div>
+}
+

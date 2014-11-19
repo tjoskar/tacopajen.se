@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Tacopajen.Models;
 
 namespace Tacopajen.Controllers
 {
@@ -17,7 +14,7 @@ namespace Tacopajen.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View(new CommentModel());
         }
 
     }

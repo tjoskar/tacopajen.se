@@ -101,6 +101,24 @@ namespace Tacopajen.Database
             return list;
         }
 
+        public Recipe GetRecipe(Guid guid)
+        {
+            OpenConnection();
+            var sql = "Select * from Recipe Where id ="+guid;
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            dataReader.Read();
+            var recipe = new Recipe()
+            {
+                Description = dataReader["Description"].ToString(),
+                Id = dataReader["id"].ToString(),
+                ImgUrl = dataReader["ImageUrl"].ToString(),
+                Name = dataReader["Name"].ToString()
+            };
+            CloseConnection();
+            return recipe;
+        }
+
         public List<Ingredient> GetAllIngredientsfor(Guid guid)
         {
             OpenConnection();

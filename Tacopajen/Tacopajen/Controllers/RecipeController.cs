@@ -14,7 +14,7 @@ namespace Tacopajen.Controllers
             var dbcon = new Db();
 
             var recipes = dbcon.GetAllRecipe();
-            var model = new RecipeViewModel();
+            var model = new RecipeListViewModel();
             
             var ingredients = new  List<List<Ingredient>>();
             foreach (var recipe in recipes)
@@ -27,6 +27,20 @@ namespace Tacopajen.Controllers
             model.Ingredients = ingredients;
             model.Recipes = recipes;
             return View(model);
+        }
+
+        public ActionResult Recipe(string id)
+        {
+            var dbcon = new Db();
+            var model = new RecipeViewModel
+            {
+                OtheRecipes = dbcon.GetAllRecipe(),
+                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
+                Ingredients = dbcon.GetAllIngredientsfor(Guid.Parse(id))
+            };
+
+            return View(model);
+            
         }
     }
 }

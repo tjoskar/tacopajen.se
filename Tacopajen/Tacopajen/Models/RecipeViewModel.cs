@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Tacopajen.Models
 {
     public class RecipeViewModel
     {
-        public IEnumerable<Recipe> Recipes { get; set; }
-        public IEnumerable<IEnumerable<Ingredient>> Ingredients { get; set; }
+        public Recipe Recipe { get; set; }
+        public IEnumerable<Ingredient> Ingredients { get; set; }
+        public IEnumerable<Recipe> OtheRecipes { get; set; } 
     }
 }

@@ -1,7 +1,19 @@
-﻿
+﻿@model Tacopajen.Models.CommentModel
+
 @{
     ViewBag.Title = "Comments";
 }
 
 <h2>Comments</h2>
+
+@using (@Html.BeginForm())
+{   
+    @Html.Label("Namn") <br/>
+    @Html.TextBoxFor(model => model.Name, new {@class="name"}) <br/>
+
+    @Html.Label("Kommentar") <br/>
+    @Html.TextBoxFor(model => model.Comment, new {@class="comment"}) <br/>
+
+    <button type="submit">Comment</button>
+}
 

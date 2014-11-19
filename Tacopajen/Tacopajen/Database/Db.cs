@@ -104,7 +104,7 @@ namespace Tacopajen.Database
         public Recipe GetRecipe(Guid guid)
         {
             OpenConnection();
-            var sql = "Select * from Recipe Where id = '" + guid.ToString()+"'";
+            var sql = "Select * from Recipe Where id = '" + guid+"'";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
             Recipe recipe = null;

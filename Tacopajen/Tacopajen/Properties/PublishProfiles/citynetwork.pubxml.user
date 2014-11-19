@@ -16,6 +16,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>11/17/2014 12:01:12</publishTime>
     </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>11/19/2014 10:14:02</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/17/2014 12:01:14</publishTime>
     </File>
@@ -41,7 +44,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/Tacopajen.dll">
-      <publishTime>11/17/2014 17:01:47</publishTime>
+      <publishTime>11/19/2014 13:14:02</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/17/2014 12:01:13</publishTime>
@@ -53,7 +56,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/17/2014 12:01:15</publishTime>
+      <publishTime>11/19/2014 10:14:03</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/17/2014 12:01:07</publishTime>
@@ -95,13 +98,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2014 12:01:12</publishTime>
     </File>
     <File Include="Views/Home/Comments.cshtml">
-      <publishTime>11/17/2014 12:02:38</publishTime>
+      <publishTime>11/19/2014 11:04:29</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/17/2014 16:26:35</publishTime>
+      <publishTime>11/19/2014 13:12:32</publishTime>
+    </File>
+    <File Include="Views/Recipe/Index.cshtml">
+      <publishTime>11/19/2014 11:14:08</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/17/2014 17:14:21</publishTime>
+      <publishTime>11/19/2014 11:54:43</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/17/2014 12:00:55</publishTime>
@@ -110,7 +116,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/17/2014 17:01:50</publishTime>
+      <publishTime>11/19/2014 13:14:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

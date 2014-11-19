@@ -24,3 +24,4 @@ C:\Projekt\jagvillhatacopaj.nu\Tacopajen\Tacopajen\bin\Newtonsoft.Json.xml
 C:\Projekt\jagvillhatacopaj.nu\Tacopajen\Tacopajen\obj\Release\Tacopajen.csprojResolveAssemblyReference.cache
 C:\Projekt\jagvillhatacopaj.nu\Tacopajen\Tacopajen\obj\Release\Tacopajen.dll
 C:\Projekt\jagvillhatacopaj.nu\Tacopajen\Tacopajen\obj\Release\Tacopajen.pdb
+C:\Projekt\jagvillhatacopaj.nu\Tacopajen\Tacopajen\bin\MySql.Data.dll

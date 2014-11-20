@@ -164,8 +164,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Recept\Index.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
-  <Content Include="Views\Home\About.cshtml" />
-</ItemGroup>
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Recept\Recipe.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="fonts\" />

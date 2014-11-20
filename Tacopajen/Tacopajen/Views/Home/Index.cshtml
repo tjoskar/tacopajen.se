@@ -11,7 +11,7 @@
             <ul>
                 <li><a href="/">Grundrecept</a></li>
                 <li><a href="/recept">LCHF</a></li>
-                <li><a href="/recept">Vegitarisk</a></li>
+                <li><a href="/recept">Vegetarisk</a></li>
                 <li><a href="/recept">Andra typer</a></li>
             </ul>
         </nav>
@@ -51,7 +51,10 @@
             <p class="author">Författare: <span itemprop="author">Oskar Karlsson</span></p>
         </div>
     </div>
-
+    <div class="Comments" >
+        <h1>Kommentarer</h1>
+        @{ Html.RenderPartial("Comments", Model.Comments); }
+    </div>
 
     <div class="wrapper-list">
         <h1>Liknande Recept</h1>

@@ -44,10 +44,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/Tacopajen.dll">
-      <publishTime>11/19/2014 13:14:02</publishTime>
+      <publishTime>11/19/2014 17:10:04</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/17/2014 12:01:13</publishTime>
+    </File>
+    <File Include="Content/bg.jpg">
+      <publishTime>11/19/2014 11:54:43</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/17/2014 12:00:55</publishTime>
@@ -101,13 +104,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 11:04:29</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/19/2014 13:12:32</publishTime>
+      <publishTime>11/19/2014 15:11:34</publishTime>
+    </File>
+    <File Include="Views/Recept/Index.cshtml">
+      <publishTime>11/19/2014 15:15:56</publishTime>
     </File>
     <File Include="Views/Recipe/Index.cshtml">
       <publishTime>11/19/2014 11:14:08</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/19/2014 11:54:43</publishTime>
+      <publishTime>11/19/2014 17:10:03</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/17/2014 12:00:55</publishTime>

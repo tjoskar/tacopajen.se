@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tacopajen.Models
 {
     public class CommentModel
     {
-        [Required]
-        public string Name { get; set; }
-
-        [Required]
-        public string Comment { get; set; }
+        public List<Comment> Comments { get; set; }
+        public string RecipeId { get; set; }
     }
 }

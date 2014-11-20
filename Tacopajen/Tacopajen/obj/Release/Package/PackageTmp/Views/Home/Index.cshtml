@@ -3,82 +3,91 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="main">
+<div class="main" itemscope itemtype="http://data-vocabulary.org/Recipe">
 
     <header>
         <h1 class="logo">Tacopajen</h1>
         <nav class="header-menu">
             <ul>
                 <li><a href="/">Grundrecept</a></li>
-                <li><a href="/lchf">LCHF</a></li>
-                <li><a href="/vegitariskt">Vegitarisk</a></li>
-                <li><a href="/lista">Andra typer</a></li>
+                <li><a href="/recept">LCHF</a></li>
+                <li><a href="/recept">Vegetarisk</a></li>
+                <li><a href="/recept">Andra typer</a></li>
             </ul>
         </nav>
     </header>
-
-    <div class="cover-img">
-        <h1>@Model.Recipe.Name</h1>
+    
+    <img itemprop="photo" src="@Model.Recipe.ImgUrl" class="display-none" />
+    <div class="cover-img" style="background-image: url(@Model.Recipe.ImgUrl)">
+        <h1 itemprop="name">@Model.Recipe.Name</h1>
     </div>
 
     <div class="wrapper">
         <div class="sidebar">
             <h1>Ingredienser</h1>
             <h3>Pajdeg</h3>
-            <ul>
+            <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
                 @foreach (var ingredient in Model.Ingredients.Deg)
                 {
 
-                    <li>@ingredient.IngredientName, @ingredient.Quantity</li>
+                    <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
                 }
             </ul>
 
             <h3>Fyllning</h3>
-            <ul>
+            <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
                 @foreach (var ingredient in Model.Ingredients.Fyll)
                 {
-                    <li>@ingredient.IngredientName, @ingredient.Quantity</li>
+
+                    <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
                 }
             </ul>
         </div>
 
         <div class="main-content">
             <h1>Gör så här</h1>
-            <p>@Model.Recipe.Description</p>
-           </div>
+            <p class="summary" itemprop="summary">Världens bästa tacopaj</p>
+            <p itemprop="instructions">@Model.Recipe.Description</p>
+            <p class="author">Författare: <span itemprop="author">Oskar Karlsson</span></p>
+        </div>
+        
     </div>
-
+    <div class="Comments">
+        <h1>Kommentarer</h1>
+        @{ Html.RenderPartial("Comments", Model.Comments); }
+    </div>
 
     <div class="wrapper-list">
         <h1>Liknande Recept</h1>
         <ul class="list">
             <li class="list-element">
                 <div class="list-box">
-                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg"/>
+                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
                     <h4>Tacopaj LCHF</h4>
                     <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
                 </div>
             </li>
             <li class="list-element">
                 <div class="list-box">
-                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg"/>
+                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
                     <h4>Tacopaj LCHF</h4>
                     <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
                 </div>
             </li>
             <li class="list-element">
                 <div class="list-box">
-                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg"/>
+                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
                     <h4>Tacopaj LCHF</h4>
                     <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
                 </div>
             </li>
             <li class="list-element">
                 <div class="list-box">
-                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg"/>
+                    <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
                     <h4>Tacopaj LCHF</h4>
                     <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
                 </div>
             </li>
         </ul>
     </div>
+</div>

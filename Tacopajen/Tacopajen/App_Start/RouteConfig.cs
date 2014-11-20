@@ -14,6 +14,11 @@ namespace Tacopajen
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Recept",
+                url: "Recept",
+                defaults: new {controller = "Recept", action = "Recipe"});
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

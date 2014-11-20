@@ -25,12 +25,13 @@
             <ul class="list">
                 @foreach (var recipe in Model.Recipes)
                 {
+                    
                     <li class="list-element left">
                         <div class="list-box">
-                            <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                            <h4>@recipe.Name</h4>
-                            <p>@recipe.Description</p>
-                            <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
+                                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
+                                <h4>@recipe.Name</h4>
+                                <p>@recipe.Description</p>
+                                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
                         </div>
                     </li>
                 }

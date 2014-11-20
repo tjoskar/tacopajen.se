@@ -1,8 +1,5 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Tacopajen.Models;
@@ -191,6 +188,47 @@ namespace Tacopajen.Database
             }
             CloseConnection();
             return ingredients;
+        }
+
+        public bool AddRecipe(AddRecipeModel model)
+        {
+            OpenConnection();
+            var id = Guid.NewGuid();
+            var sql = "INSERT INTO Recipe (Id,Name,Description,ImageUrl) values('" + id + "','" + model.Name +
+                "','" + model.Description + "','" + model.ImgUrl + "');";
+            var cmd = new MySqlCommand(sql, connection);
+
+            var dataReader = cmd.ExecuteReader();
+            dataReader.Read();
+            dataReader.Close();
+
+            var Degar = model.Degs.Split(';');
+            foreach (var deg in Degar)
+            {
+                var ingredient = deg.Split(',');
+                var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
+                           "','" + ingredient[1] + "','" + "Pajdeg" + "');";
+                var commander = new MySqlCommand(sqlQ, connection);
+                var dataReading = commander.ExecuteReader();
+                dataReading.Read();
+                dataReading.Close();
+            }
+
+            var fyllningar = model.Fylls.Split(';');
+            foreach (var fyllning in fyllningar)
+            {
+                var ingredient = fyllning.Split(',');
+                var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
+                           "','" + ingredient[1] + "','" + "Fyllning" + "');";
+                var commander = new MySqlCommand(sqlQ, connection);
+                var dataReading = commander.ExecuteReader();
+                dataReading.Read();
+                dataReading.Close();
+
+            }
+
+            CloseConnection();
+            return true;
         }
     }
 }

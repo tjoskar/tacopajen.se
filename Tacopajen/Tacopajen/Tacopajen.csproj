@@ -115,6 +115,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReceptController.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddRecipeModel.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -163,6 +165,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Recept\Index.cshtml" />
+    <Content Include="Views\Add\Index.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Recept\Recipe.cshtml" />

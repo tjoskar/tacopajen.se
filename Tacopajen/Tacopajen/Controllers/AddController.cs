@@ -17,8 +17,11 @@ namespace Tacopajen.Controllers
         public ActionResult Index(AddRecipeModel model)
         {
             var dbcon = new Db();
-            dbcon.AddRecipe(model);
-            return null;
+            if (dbcon.AddRecipe(model))
+            {
+                return View();
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

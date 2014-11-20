@@ -159,10 +159,36 @@ namespace Tacopajen.Database
         public bool AddRecipe(AddRecipeModel model)
         {
             OpenConnection();
-            var sql = "INSERT INTO Recipes (Name,Description,ImgUrl) values('" + model.Name + "','" + model.Description + "','" + model.ImgUrl + "');";
+            var id = Guid.NewGuid();
+            var sql = "INSERT INTO Recipes (Id,Name,Description,ImgUrl) values('" + id + "','" + model.Name +
+                "','" + model.Description + "','" + model.ImgUrl + "');";
             var cmd = new MySqlCommand(sql, connection);
+
             var dataReader = cmd.ExecuteReader();
             dataReader.Read();
+
+            var Degar = model.Degs.Split(';');
+            foreach (var deg in Degar)
+            {
+                var ingredient = deg.Split(',');
+                var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
+                           "','" + ingredient[1] + "','" + "Pajdeg" + "');";
+                var commander = new MySqlCommand(sqlQ, connection);
+                var dataReading = commander.ExecuteReader();
+                dataReading.Read();
+            }
+
+            var fyllningar = model.Fylls.Split(';');
+            foreach (var fyllning in fyllningar)
+            {
+                var ingredient = fyllning.Split(',');
+                var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
+                           "','" + ingredient[1] + "','" + "Fyllning" + "');";
+                var commander = new MySqlCommand(sqlQ, connection);
+                var dataReading = commander.ExecuteReader();
+                dataReading.Read();
+            }
+
             CloseConnection();
             return true;
         }

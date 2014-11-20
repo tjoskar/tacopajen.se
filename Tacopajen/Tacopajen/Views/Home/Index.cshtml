@@ -50,8 +50,9 @@
             <p itemprop="instructions">@Model.Recipe.Description</p>
             <p class="author">Författare: <span itemprop="author">Oskar Karlsson</span></p>
         </div>
+        
     </div>
-    <div class="Comments" >
+    <div class="Comments">
         <h1>Kommentarer</h1>
         @{ Html.RenderPartial("Comments", Model.Comments); }
     </div>

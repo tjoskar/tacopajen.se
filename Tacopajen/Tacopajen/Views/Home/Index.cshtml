@@ -47,7 +47,10 @@
             <p>@Model.Recipe.Description</p>
            </div>
     </div>
-
+    <div class="Comments" >
+        <h1>Kommentarer</h1>
+        @{ Html.RenderPartial("Comments", Model.Comments); }
+    </div>
 
 <div class="wrapper-list">
     <h1>Liknande Recept</h1>

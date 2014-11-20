@@ -1,0 +1,30 @@
+﻿@model Tacopajen.Models.CommentModel
+
+@{
+    ViewBag.Title = "Comments";
+}
+
+<h2>Comments</h2>
+
+@foreach (var comment in Model.Comments)
+{
+    <div class ="Comment">
+        <p>@comment.Name</p>
+        <p>@comment.Text</p>
+    </div>
+}
+
+@using (Html.BeginForm("PostComment", "Comment", FormMethod.Post))
+{
+    <label for="id-name">Namn:</label><br />
+    <div class="edit-field"><input type="text" id="id-name" name="name"></div>
+    <label for="id-text">Kommentar:</label><br />
+    <div class="edit-field"><textarea cols="40" id="id-text" name="text" rows="10"></textarea></div>
+    <input type="hidden" name="recipeId" value="@Model.RecipeId">
+    <label for="id-score">Betyg(1-5):</label><br />
+    <div class="edit-field"><input type="text" id="id-score" name="score"></div>
+    <p><input type="submit" value="Kommentera" class="btn-light right"></p>
+    @Html.AntiForgeryToken()
+}
+
+

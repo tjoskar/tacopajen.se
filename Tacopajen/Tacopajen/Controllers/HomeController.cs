@@ -12,12 +12,14 @@ namespace Tacopajen.Controllers
         {
             const string id = "FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA83";
             var dbcon = new Db();
-            var model = new RecipeViewModel();
+            var model = new RecipeViewModel
+            {
+                OtheRecipes = dbcon.GetAllRecipe(),
+                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
+                Ingredients = dbcon.GetAllIngredients(Guid.Parse(id)),
+                Comments = new CommentModel(){ Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)), RecipeId = id}
+            };
 
-            model.OtheRecipes = dbcon.GetAllRecipe();
-            model.Recipe = dbcon.GetRecipe(Guid.Parse(id));
-            model.Ingredients = dbcon.GetAllIngredients(Guid.Parse(id));
-            
 
             return View(model);
         }

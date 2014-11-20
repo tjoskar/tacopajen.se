@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -83,8 +84,8 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var sql = "Select * from Recipe";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            MySqlDataReader dataReader = cmd.ExecuteReader();
+            var cmd = new MySqlCommand(sql, connection);
+            var dataReader = cmd.ExecuteReader();
             var list = new List<Recipe>();
             while (dataReader.Read())
             {
@@ -101,12 +102,46 @@ namespace Tacopajen.Database
             return list;
         }
 
+        public List<Comment> GetCommentsByRecipe(Guid recipeGuid)
+        {
+            OpenConnection();
+            var list = new List<Comment>();
+            var sql = "Select * from Comments Where recipe ='"+ recipeGuid +"'";
+            var cmd = new MySqlCommand(sql, connection);
+            var dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                var temp = new Comment()
+                {
+                    Text = dataReader["Comment"].ToString(),
+                    Name = dataReader["Name"].ToString(),
+                    Score = Convert.ToInt32(dataReader["Score"].ToString()),
+                    RecipeId = recipeGuid,
+                    Id = Convert.ToInt32(dataReader["CommentId"].ToString())
+                };
+                list.Add(temp);
+            }
+            CloseConnection();
+            return list;
+        }
+
+        public bool AddComment(Comment comment)
+        {
+            OpenConnection();
+            var sql = "Insert into Comments (Recipe, Comment, Name, Score) values ('" + comment.RecipeId + "','" + comment.Text + "','" + comment.Name + "','" + comment.Score + "')";
+            var cmd = new MySqlCommand(sql, connection);
+            var dataReader = cmd.ExecuteReader();
+            dataReader.Read();
+            CloseConnection();
+            return true;
+        }
+
         public Recipe GetRecipe(Guid guid)
         {
             OpenConnection();
             var sql = "Select * from Recipe Where id = '" + guid+"'";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            MySqlDataReader dataReader = cmd.ExecuteReader();
+            var cmd = new MySqlCommand(sql, connection);
+            var dataReader = cmd.ExecuteReader();
             Recipe recipe = null;
             while (dataReader.Read())
             {

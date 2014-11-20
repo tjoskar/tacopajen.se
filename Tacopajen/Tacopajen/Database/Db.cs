@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Tacopajen.Models;
@@ -156,6 +154,17 @@ namespace Tacopajen.Database
             }
             CloseConnection();
             return ingredients;
+        }
+
+        public bool AddRecipe(AddRecipeModel model)
+        {
+            OpenConnection();
+            var sql = "INSERT INTO Recipes (Name,Description,ImgUrl) values('" + model.Name + "','" + model.Description + "','" + model.ImgUrl + "');";
+            var cmd = new MySqlCommand(sql, connection);
+            var dataReader = cmd.ExecuteReader();
+            dataReader.Read();
+            CloseConnection();
+            return true;
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿@model Tacopajen.Models.AddRecipeModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lägg till recept</h2>
+<div style="background-color: white">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name) <br />
+        @Html.TextAreaFor(recipe => recipe.Name) <br />
+
+        @Html.LabelFor(model => model.Description) <br />
+        @Html.TextAreaFor(recipe => recipe.Description) <br />
+
+        @Html.LabelFor(model => model.ImgUrl) <br />
+        @Html.TextAreaFor(recipe => recipe.ImgUrl) <br />
+        <br/>
+        
+        @Html.Label("Använd ; som för avdelning och ny rad för varje ingrediens") <br />
+        <br/>
+        
+        @Html.LabelFor(model => model.Fylls) <br />
+        @Html.TextAreaFor(recipe => recipe.Fylls) <br>
+
+        @Html.LabelFor(model => model.Degs) <br />
+        @Html.TextAreaFor(recipe => recipe.Degs) <br>
+
+        <button type="submit"> Submit</button>
+    }
+</div>
+

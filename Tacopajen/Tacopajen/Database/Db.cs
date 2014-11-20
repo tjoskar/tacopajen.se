@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -195,12 +194,13 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var id = Guid.NewGuid();
-            var sql = "INSERT INTO Recipes (Id,Name,Description,ImgUrl) values('" + id + "','" + model.Name +
+            var sql = "INSERT INTO Recipe (Id,Name,Description,ImageUrl) values('" + id + "','" + model.Name +
                 "','" + model.Description + "','" + model.ImgUrl + "');";
             var cmd = new MySqlCommand(sql, connection);
 
             var dataReader = cmd.ExecuteReader();
             dataReader.Read();
+            dataReader.Close();
 
             var Degar = model.Degs.Split(';');
             foreach (var deg in Degar)
@@ -211,6 +211,7 @@ namespace Tacopajen.Database
                 var commander = new MySqlCommand(sqlQ, connection);
                 var dataReading = commander.ExecuteReader();
                 dataReading.Read();
+                dataReading.Close();
             }
 
             var fyllningar = model.Fylls.Split(';');
@@ -222,6 +223,8 @@ namespace Tacopajen.Database
                 var commander = new MySqlCommand(sqlQ, connection);
                 var dataReading = commander.ExecuteReader();
                 dataReading.Read();
+                dataReading.Close();
+
             }
 
             CloseConnection();

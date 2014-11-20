@@ -124,6 +124,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddRecipeModel.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Recipe.cs" />
@@ -166,8 +167,8 @@
     <Content Include="Views\Recept\Index.cshtml" />
     <Content Include="Views\Add\Index.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
-  <Content Include="Views\Home\About.cshtml" />
-</ItemGroup>
+    <Content Include="Views\Home\About.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="fonts\" />

@@ -10,6 +10,7 @@ namespace Tacopajen.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = "För alla som älskar tacopaj!";
             const string id = "FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA83";
             var dbcon = new Db();
             var model = new RecipeViewModel
@@ -24,16 +25,5 @@ namespace Tacopajen.Controllers
             return View(model);
         }
 
-        public ActionResult Comments()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            return View();
-        }
     }
 }

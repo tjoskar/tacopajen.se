@@ -12,11 +12,17 @@ namespace Tacopajen
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.LowercaseUrls = true;
 
             routes.MapRoute(
                 name: "Recept",
                 url: "Recept",
                 defaults: new {controller = "Recept", action = "Recipe"});
+
+            routes.MapRoute(
+                name: "LCHF",
+                url: "recept/lchf-tacopaj",
+                defaults: new { controller = "Recept", action = "Lchf" });
 
             routes.MapRoute(
                 name: "Default",

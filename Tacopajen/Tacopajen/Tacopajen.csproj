@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bg.jpg" />
+    <Content Include="Content\tacopaj\grund.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />

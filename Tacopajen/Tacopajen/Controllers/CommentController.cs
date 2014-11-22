@@ -23,8 +23,7 @@ namespace Tacopajen.Controllers
             var dbcon = new Db();
             dbcon.AddComment(comment);
 
-            //return RedirectToAction("Recipe", "Recept", new {id = Guid.Parse(form["recipeId"])});
-            return Redirect("/");
+            return Redirect(form["callback"]);
         }
 
     }

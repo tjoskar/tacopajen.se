@@ -103,7 +103,7 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var list = new List<Comment>();
-            var sql = "Select * from Comments Where recipe ='"+ recipeGuid +"'";
+            var sql = "SELECT * FROM Comments WHERE recipe ='" + recipeGuid + "' ORDER BY CommentId DESC";
             var cmd = new MySqlCommand(sql, connection);
             var dataReader = cmd.ExecuteReader();
             while (dataReader.Read())

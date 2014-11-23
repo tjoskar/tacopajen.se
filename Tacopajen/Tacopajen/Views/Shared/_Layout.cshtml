@@ -87,10 +87,21 @@
 
         .list-box {
             margin: 0.3em;
-            padding: 0.5em;
+            padding: 0.5em 0.5em 0 0.5em;
             font-size: 14px;
             background-color: #fafafa;
             display: inline-block;
+            position: relative;
+        }
+
+        .list-box p.instruction {
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .list-box a {
+            text-decoration: none;
         }
 
         .list-image {
@@ -117,6 +128,7 @@
         li.list-element {
             width: 25%;
             display: inline-block;
+            vertical-align: top;
         }
 
         .left {
@@ -200,9 +212,9 @@
             border-bottom: 1px solid #FAC36A;
         }
 
-            .comment:nth-child(odd) {
-                background-color: #FDF2DF;
-            }
+        .comment:nth-child(odd) {
+            background-color: #FDF2DF;
+        }
 
         .comment-form {
             width: 50%;
@@ -210,23 +222,23 @@
             padding: 60px 0;
         }
 
-            .comment-form input, .comment-form textarea {
-                width: 100%;
-                padding: 10px;
-                margin: 10px 0;
-                border: none;
-                border-bottom: 1px solid #FAC36A;
-                outline: none;
-                font-size: 16px;
-                font-family: verdana;
-                box-sizing: content-box;
-            }
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 1px solid #FAC36A;
+            outline: none;
+            font-size: 16px;
+            font-family: verdana;
+            box-sizing: content-box;
+        }
 
-                .comment-form input[type="submit"] {
-                    background-color: #3498db;
-                    border: none;
-                    color: #292929;
-                }
+        .comment-form input[type="submit"] {
+            background-color: #3498db;
+            border: none;
+            color: #292929;
+        }
 
         .comment p.name {
             text-transform: capitalize;
@@ -255,22 +267,22 @@
             color: #FAC36A;
         }
 
-            h2.horizontal-line:before, h2.horizontal-line:after {
-                content: '\a0';
-                width: 48%;
-                top: 50%;
-                height: 1px;
-                position: absolute;
-                background-color: #FAC36A;
-            }
+        h2.horizontal-line:before, h2.horizontal-line:after {
+            content: '\a0';
+            width: 48%;
+            top: 50%;
+            height: 1px;
+            position: absolute;
+            background-color: #FAC36A;
+        }
 
-            h2.horizontal-line:before {
-                margin-left: -50%;
-            }
+        h2.horizontal-line:before {
+            margin-left: -50%;
+        }
 
-            h2.horizontal-line:after {
-                margin-left: 2%;
-            }
+        h2.horizontal-line:after {
+            margin-left: 2%;
+        }
 
         .summary {
             font-family: georgia;
@@ -281,6 +293,15 @@
         .author {
             font-size: 14px;
             font-style: italic;
+        }
+
+        .read-more {
+	        position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: linear-gradient(transparent, rgb(239, 239, 239));
         }
     </style>
 </head>
@@ -293,8 +314,8 @@
                 <ul>
                     <li><a href="/">Grundrecept</a></li>
                     <li><a href="/recept/lchf-tacopaj">LCHF</a></li>
-                    <li><a href="/recept">Vegetarisk</a></li>
-                    <li><a href="/recept">Andra typer</a></li>
+                    <li><a href="/recept/vegetarisk">Vegetarisk</a></li>
+                    <li><a href="/recept/andra-tacopajer">Andra typer</a></li>
                 </ul>
             </nav>
         </header>

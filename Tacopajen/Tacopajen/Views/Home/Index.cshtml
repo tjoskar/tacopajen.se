@@ -42,33 +42,16 @@
 <div class="wrapper-list">
     <h1>Liknande Recept</h1>
     <ul class="list">
-        <li class="list-element">
-            <div class="list-box">
-                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                <h4>Tacopaj LCHF</h4>
-                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
-            </div>
-        </li>
-        <li class="list-element">
-            <div class="list-box">
-                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                <h4>Tacopaj LCHF</h4>
-                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
-            </div>
-        </li>
-        <li class="list-element">
-            <div class="list-box">
-                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                <h4>Tacopaj LCHF</h4>
-                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
-            </div>
-        </li>
-        <li class="list-element">
-            <div class="list-box">
-                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                <h4>Tacopaj LCHF</h4>
-                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
-            </div>
-        </li>
+        @foreach (var recipe in Model.OtheRecipes)
+        {
+            <li class="list-element">
+                <div class="list-box">
+                    <a href="/recept?id=@recipe.Id">
+                        <img class="list-image" src="@recipe.ImgUrl" />
+                        <h4>@recipe.Name</h4>
+                    </a>
+                </div>
+            </li>
+        }
     </ul>
 </div>

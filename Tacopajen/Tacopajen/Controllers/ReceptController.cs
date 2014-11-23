@@ -19,7 +19,6 @@ namespace Tacopajen.Controllers
             };
         }
 
-        // GET: Recipe
         public ActionResult Index()
         {
             var dbcon = new Db();
@@ -39,19 +38,32 @@ namespace Tacopajen.Controllers
             );
         }
 
+        public ActionResult Vegetarisk()
+        {
+            ViewBag.Title = "Vegetarisk";
+            return View(
+                "../Home/Index",
+                GetRecipeModel("FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA85")
+            );
+        }
+
+        public ActionResult Kyckling()
+        {
+            ViewBag.Title = "Kyckling";
+            return View(
+                "../Home/Index",
+                GetRecipeModel("FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA86")
+            );
+        }
+
         public ActionResult Recipe(string id)
         {
-            var dbcon = new Db();
-            var model = new RecipeViewModel
-            {
-                OtheRecipes = dbcon.GetAllRecipe(),
-                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
-                Ingredients = dbcon.GetAllIngredients(Guid.Parse(id)),
-                Comments = new CommentModel() { Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)),RecipeId = id}
-            };
-
-            return View(model);
-            
+            var model = GetRecipeModel(id);
+            ViewBag.Title = model.Recipe.Name;
+            return View(
+                "../Home/Index",
+                model
+            );
         }
     }
 }

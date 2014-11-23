@@ -1,41 +1,24 @@
 ﻿@model Tacopajen.Models.RecipeListViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Andra tacopajer";
 }
 
-<div class="main">
-    <header>
-        <h1 class="logo">Tacopajen</h1>
-        <nav class="header-menu">
-            <ul>
-                <li><a href="/">Grundrecept</a></li>
-                <li><a href="/recept">LCHF</a></li>
-                <li><a href="/recept">Vegetarisk</a></li>
-                <li><a href="/recept">Andra typer</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="cover-img">
-        <h1>Alla Recept</h1>
-    </div>
-
-    <div class="wrapper">
-        <div class="wrapper-list">
-            <ul class="list">
-                @foreach (var recipe in Model.Recipes)
-                {
-                    
-                    <li class="list-element left">
-                        <div class="list-box">
-                                <img class="list-image" src="http://www.ica.se/imagevaultfiles/id_42718/cf_1286/tacopaj-714198.jpg" />
-                                <h4>@recipe.Name</h4>
-                                <p>@recipe.Description</p>
-                                <p>Recept av: <a class="list-link" href="http://www.ica.se/recept/tacopaj-714198/">Ica</a></p>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
+<div class="wrapper">
+    <div class="wrapper-list">
+        <ul class="list">
+            @foreach (var recipe in Model.Recipes)
+            {
+                <li class="list-element left">
+                    <div class="list-box">
+                        <a href="/recept?id=@recipe.Id">
+                            <img class="list-image" src="@recipe.ImgUrl" />
+                            <h4>@recipe.Name</h4>
+                            <p class="instruction">@recipe.Description</p>
+                            <div class="read-more"></div>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
 </div>

@@ -1,31 +1,57 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model Tacopajen.Models.RecipeViewModel
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<img itemprop="photo" src="@Model.Recipe.ImgUrl" class="display-none" />
+<div class="cover-img" style="background-image: url(@Model.Recipe.ImgUrl)">
+    <h1 itemprop="name">@Model.Recipe.Name</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="wrapper">
+    <div class="sidebar">
+        <h1>Ingredienser</h1>
+        <h3>Pajdeg</h3>
+        <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
+            @foreach (var ingredient in Model.Ingredients.Deg)
+            {
+
+                <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
+            }
+        </ul>
+
+        <h3>Fyllning</h3>
+        <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
+            @foreach (var ingredient in Model.Ingredients.Fyll)
+            {
+
+                <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
+            }
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="main-content">
+        <h1>Gör så här</h1>
+        <p class="summary" itemprop="summary">Världens bästa tacopaj</p>
+        <p itemprop="instructions">@Model.Recipe.Description</p>
+        <p class="author">Författare: <span itemprop="author">Oskar Karlsson</span></p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
+</div>
+<div class="comments">
+    @{ Html.RenderPartial("Comments", Model.Comments); }
+</div>
+
+<div class="wrapper-list">
+    <h1>Liknande Recept</h1>
+    <ul class="list">
+        @foreach (var recipe in Model.OtheRecipes)
+        {
+            <li class="list-element">
+                <div class="list-box">
+                    <a href="/recept?id=@recipe.Id">
+                        <img class="list-image" src="@recipe.ImgUrl" />
+                        <h4>@recipe.Name</h4>
+                    </a>
+                </div>
+            </li>
+        }
+    </ul>
 </div>

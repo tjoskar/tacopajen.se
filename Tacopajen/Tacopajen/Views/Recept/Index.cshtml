@@ -1,0 +1,24 @@
+﻿@model Tacopajen.Models.RecipeListViewModel
+@{
+    ViewBag.Title = "Andra tacopajer";
+}
+
+<div class="wrapper">
+    <div class="wrapper-list">
+        <ul class="list">
+            @foreach (var recipe in Model.Recipes)
+            {
+                <li class="list-element left">
+                    <div class="list-box">
+                        <a href="/recept?id=@recipe.Id">
+                            <img class="list-image" src="@recipe.ImgUrl" />
+                            <h4>@recipe.Name</h4>
+                            <p class="instruction">@recipe.Description</p>
+                            <div class="read-more"></div>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

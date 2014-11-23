@@ -1,0 +1,30 @@
+﻿@model Tacopajen.Models.CommentModel
+
+<h2 class="horizontal-line">Kommentarer</h2>
+
+@foreach (var comment in Model.Comments)
+{
+    <div class ="comment">
+        <div class="left">
+            <p class="name">@comment.Name</p>  
+            <p>Betyg: @comment.Score av 5</p>  
+        </div>
+        <div class="right">
+            <p>@comment.Text</p>
+        </div>
+    </div>
+}
+
+<div class="comment-form">
+    @using (Html.BeginForm("PostComment", "Comment", FormMethod.Post))
+    {
+        <input type="text" id="id-name" name="name" placeholder="Namn" required />
+        <input type="number" id="id-score" name="score" min="1" max="5" placeholder="Betyg (1 till 5)" required />
+        <textarea id="id-text" name="text" placeholder="Din kommentar" required></textarea>
+        <input type="hidden" name="recipeId" value="@Model.RecipeId" />
+        <input type="hidden" name="callback" value="@Request.RawUrl" />
+        <input type="submit" value="Kommentera" />
+        @Html.AntiForgeryToken()
+    }
+</div>
+

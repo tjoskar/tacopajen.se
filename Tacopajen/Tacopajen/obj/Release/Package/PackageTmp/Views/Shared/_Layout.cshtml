@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tacopajen - För alla som älskar tacopaj!</title>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+
+    <script async>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-56881439-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(/Content/bg.jpg);
+            background-repeat: repeat;
+        }
+
+        h1, h2, h3, h4, h5, p {
+            color: #424242;
+        }
+
+        h4 {
+            font-family: Helvetica;
+        }
+
+        p {
+            font-family: arial;
+            line-height: 1.5;
+        }
+
+        .main {
+            width: 70%;
+            height: 100%;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+
+        header {
+            overflow: hidden;
+        }
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            margin: 30px;
+            font-weight: 100;
+            font-size: 32px;
+            color: #292929;
+            float: left;
+        }
+
+        header {
+            overflow: hidden;
+        }
+
+        .header-menu {
+            float: right;
+            margin: 30px 20px 0 0;
+        }
+
+        .header-menu ul {
+            list-style: none;
+        }
+
+        .header-menu ul li {
+            float: left;
+            margin-left: 10px;
+
+        }
+
+        .header-menu ul li a {
+            padding: 20px 20px;
+            font-size: 12px;
+            font-family: sans-serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #333;
+            transition: all .2s ease-out;
+        }
+
+        .header-menu ul li a:hover {
+            color: #fff;
+            background-color: #3498db;
+        }
+
+        .list-box {
+            margin: 0.3em;
+            padding: 0.5em;
+            font-size: 14px;
+            background-color: #fafafa;
+            display: inline-block;
+        }
+
+        .list-image {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            display: block;
+            margin: 0;
+        }
+
+        a.list-link {
+            color: #3498db;
+            text-decoration: none;
+            font-family: Helvetica;
+        }
+
+        ul.list {
+            font-size: 0;
+            padding: 0;
+            background-color: #fff;
+            padding-top: 20px;
+        }
+
+        li.list-element {
+            width: 25%;
+            display: inline-block;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .sidebar {
+            width: 30%;
+            min-height: 50px;
+            background: #f39c12;
+            padding: 10px 0 10px 20px;
+            margin-top: -100px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            line-height: 1.5;
+            font-family: verdana;
+        }
+
+        .main-content {
+            width: 70%;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 300px;
+            background-image: url(http://cdn.arla.se/Files/4287675424/9d0c0d9a-04d5-4a03-9945-8e607313b985.jpg);
+            background-size: cover;
+            position: relative;
+        }
+
+        .wrapper {
+            display: flex;
+            background-color: #fff;
+        }
+
+        .wrapper-list {
+            background-color: #fff;
+            padding: 30px 0 50px 0;
+        }
+
+        .wrapper-list h1 {
+            margin: 0 0 0 30px;
+        }
+
+        .cover-img h1 {
+            position: absolute;
+            bottom: 0;
+            right: 30px;
+            font-family: verdana;
+            text-transform: uppercase;
+            font-size: 40px;
+            background-color: rgba(0, 0, 0, .2);
+            color: #E4E4E4;
+            padding: 10px;
+            font-weight: 100;
+        }
+
+        .display-none {
+            display: none;
+        }
+        .Comments {
+            background-color: #fff;
+        }
+
+        .summary {
+            font-family: georgia;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .author {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+@RenderBody()
+
+</body>
+</html>

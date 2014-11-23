@@ -29,13 +29,18 @@
 
     <div class="main-content">
         <h1>Gör så här</h1>
-        <p class="summary" itemprop="summary">Världens bästa tacopaj</p>
+        <p class="summary" itemprop="summary">@Model.Recipe.Intro</p>
         <p itemprop="instructions">@Model.Recipe.Description</p>
         <p class="author">Författare: <span itemprop="author">Oskar Karlsson</span></p>
     </div>
 
 </div>
 <div class="comments">
+    <div class="display-none">
+        <span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+            <span itemprop="rating">@Model.Rating</span> stars based on <span itemprop="count">@Model.RatingCount</span> reviews
+        </span>
+    </div>
     @{ Html.RenderPartial("Comments", Model.Comments); }
 </div>
 

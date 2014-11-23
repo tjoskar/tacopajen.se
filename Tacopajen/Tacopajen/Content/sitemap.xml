@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>http://tacopajen.se/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://tacopajen.se/recept/lchf-tacopaj</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://tacopajen.se/recept/vegetarisk</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://tacopajen.se/recept?id=fa8efded-3deb-49bf-a4be-8ec0a05bda86</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://tacopajen.se/recept/andra-tacopajer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+</urlset>

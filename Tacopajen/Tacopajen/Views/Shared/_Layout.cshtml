@@ -3,14 +3,15 @@
 <head>
     <title>Tacopajen - @ViewBag.Title</title>
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lobster'>
-    <link rel="stylesheet" type="text/css" href="/Content/style.css">
+    <link rel="stylesheet" type="text/css" href="/content/style.css">
+    <meta name="google-site-verification" content="jGdYNUokJdaK2240RD-f8Us7-H9X_Lq8t99HVGVNlZU" />
     <meta charset="utf-8">
 </head>
 <body>
     <div class="main" itemscope itemtype="http://data-vocabulary.org/Recipe">
 
         <header>
-            <h1 class="logo">Tacopajen</h1>
+            <a href="/" class="logo">Tacopajen</a>
             <nav class="header-menu">
                 <ul>
                     <li><a href="/">Grundrecept</a></li>
@@ -20,6 +21,13 @@
                 </ul>
             </nav>
         </header>
+        
+        <div class="display-none">
+            <time datetime="2014-11-23" itemprop="published">23 November 2014</time>
+            <time datetime="PT30M" itemprop="prepTime">30 min</time>
+            <time datetime="PT30M" itemprop="cookTime">30 min</time>
+            <time datetime="PT1H" itemprop="totalTime">1 hour</time>
+        </div>
 
         @RenderBody()
         

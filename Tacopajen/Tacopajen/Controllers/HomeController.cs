@@ -18,7 +18,9 @@ namespace Tacopajen.Controllers
                 OtheRecipes = dbcon.GetAllRecipe(),
                 Recipe = dbcon.GetRecipe(Guid.Parse(id)),
                 Ingredients = dbcon.GetAllIngredients(Guid.Parse(id)),
-                Comments = new CommentModel(){ Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)), RecipeId = id}
+                Comments = new CommentModel(){ Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)), RecipeId = id},
+                Rating = dbcon.GetRating(Guid.Parse(id)),
+                RatingCount = dbcon.GetRatingCount(Guid.Parse(id))
             };
 
 

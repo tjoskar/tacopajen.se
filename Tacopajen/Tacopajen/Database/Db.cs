@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Tacopajen.Models;
@@ -8,11 +9,7 @@ namespace Tacopajen.Database
 {
     public class Db
     {
-        private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
+        private MySqlConnection _connection;
 
         //Constructor
         public Db()
@@ -23,22 +20,22 @@ namespace Tacopajen.Database
         //Initialize values
         private void Initialize()
         {
-            server = "mysql13.citynetwork.se";
-            database = "107372-tacopaj";
-            uid = "107372-zo70272";
-            password = "hundiparis5";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
+            _connection = new MySqlConnection(
+                String.Format(
+                    "SERVER={0}; DATABASE={1}; UID={2}; PASSWORD={3};",
+                    DbCredentials.Server,
+                    DbCredentials.Database,
+                    DbCredentials.Username,
+                    DbCredentials.Password
+                )
+            );
         }
 
         private bool OpenConnection()
         {
             try
             {
-                connection.Open();
+                _connection.Open();
                 return true;
             }
             catch (MySqlException ex)
@@ -67,7 +64,7 @@ namespace Tacopajen.Database
         {
             try
             {
-                connection.Close();
+                _connection.Close();
                 return true;
             }
             catch (MySqlException ex)
@@ -81,7 +78,7 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var sql = "Select * from Recipe";
-            var cmd = new MySqlCommand(sql, connection);
+            var cmd = new MySqlCommand(sql, _connection);
             var dataReader = cmd.ExecuteReader();
             var list = new List<Recipe>();
             while (dataReader.Read())
@@ -91,7 +88,8 @@ namespace Tacopajen.Database
                     Description = dataReader["Description"].ToString(),
                     Id = dataReader["id"].ToString(),
                     ImgUrl = dataReader["ImageUrl"].ToString(),
-                    Name = dataReader["Name"].ToString()
+                    Name = dataReader["Name"].ToString(),
+                    Intro = dataReader["Intro"].ToString()
                 };
                 list.Add(temp);
             }
@@ -104,7 +102,7 @@ namespace Tacopajen.Database
             OpenConnection();
             var list = new List<Comment>();
             var sql = "SELECT * FROM Comments WHERE recipe ='" + recipeGuid + "' ORDER BY CommentId DESC";
-            var cmd = new MySqlCommand(sql, connection);
+            var cmd = new MySqlCommand(sql, _connection);
             var dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
@@ -126,7 +124,7 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var sql = "Insert into Comments (Recipe, Comment, Name, Score) values ('" + comment.RecipeId + "','" + comment.Text + "','" + comment.Name + "','" + comment.Score + "')";
-            var cmd = new MySqlCommand(sql, connection);
+            var cmd = new MySqlCommand(sql, _connection);
             var dataReader = cmd.ExecuteReader();
             dataReader.Read();
             CloseConnection();
@@ -137,7 +135,7 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var sql = "Select * from Recipe Where id = '" + guid+"'";
-            var cmd = new MySqlCommand(sql, connection);
+            var cmd = new MySqlCommand(sql, _connection);
             var dataReader = cmd.ExecuteReader();
             Recipe recipe = null;
             while (dataReader.Read())
@@ -147,7 +145,8 @@ namespace Tacopajen.Database
                     Description = dataReader["Description"].ToString(),
                     Id = dataReader["id"].ToString(),
                     ImgUrl = dataReader["ImageUrl"].ToString(),
-                    Name = dataReader["Name"].ToString()
+                    Name = dataReader["Name"].ToString(),
+                    Intro = dataReader["Intro"].ToString()
                 };
             }
             CloseConnection();
@@ -158,7 +157,7 @@ namespace Tacopajen.Database
         {
             OpenConnection();
             var sql = "Select * from Ingredients Where Recipe ='"+guid+"'";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlCommand cmd = new MySqlCommand(sql, _connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             var listDeg = new List<Ingredient>();
@@ -196,7 +195,7 @@ namespace Tacopajen.Database
             var id = Guid.NewGuid();
             var sql = "INSERT INTO Recipe (Id,Name,Description,ImageUrl) values('" + id + "','" + model.Name +
                 "','" + model.Description + "','" + model.ImgUrl + "');";
-            var cmd = new MySqlCommand(sql, connection);
+            var cmd = new MySqlCommand(sql, _connection);
 
             var dataReader = cmd.ExecuteReader();
             dataReader.Read();
@@ -208,7 +207,7 @@ namespace Tacopajen.Database
                 var ingredient = deg.Split(',');
                 var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
                            "','" + ingredient[1] + "','" + "Pajdeg" + "');";
-                var commander = new MySqlCommand(sqlQ, connection);
+                var commander = new MySqlCommand(sqlQ, _connection);
                 var dataReading = commander.ExecuteReader();
                 dataReading.Read();
                 dataReading.Close();
@@ -220,7 +219,7 @@ namespace Tacopajen.Database
                 var ingredient = fyllning.Split(',');
                 var sqlQ = "INSERT INTO Ingredients (Name,Recipe,Quantity,Category) values('" + ingredient[0] + "','" + id +
                            "','" + ingredient[1] + "','" + "Fyllning" + "');";
-                var commander = new MySqlCommand(sqlQ, connection);
+                var commander = new MySqlCommand(sqlQ, _connection);
                 var dataReading = commander.ExecuteReader();
                 dataReading.Read();
                 dataReading.Close();
@@ -229,6 +228,36 @@ namespace Tacopajen.Database
 
             CloseConnection();
             return true;
+        }
+
+        public string GetRating(Guid recipeID)
+        {
+            OpenConnection();
+            var sql = String.Format("SELECT ROUND(SUM(Score)/Count(*), 1) as rating FROM Comments WHERE Recipe = '{0}'", recipeID);
+            var cmd = new MySqlCommand(sql, _connection);
+            var dataReader = cmd.ExecuteReader();
+            var result = "0.0";
+            while (dataReader.Read())
+            {
+                result = dataReader["rating"].ToString();
+            }
+            CloseConnection();
+            return result;
+        }
+
+        public string GetRatingCount(Guid recipeID)
+        {
+            OpenConnection();
+            var sql = String.Format("SELECT Count(*) as rating_count FROM Comments WHERE Recipe = '{0}'", recipeID);
+            var cmd = new MySqlCommand(sql, _connection);
+            var dataReader = cmd.ExecuteReader();
+            var result = "0";
+            while (dataReader.Read())
+            {
+                result = dataReader["rating_count"].ToString();
+            }
+            CloseConnection();
+            return result;
         }
     }
 }

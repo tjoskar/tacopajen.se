@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public string ImgUrl { get; set; }
         public string Intro { get; set; }
+        public string Url { get; set; }
     }
 }

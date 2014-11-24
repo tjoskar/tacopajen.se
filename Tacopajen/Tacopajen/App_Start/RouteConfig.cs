@@ -15,29 +15,15 @@ namespace Tacopajen
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
-                name: "Recept",
-                url: "recept",
-                defaults: new {controller = "Recept", action = "Recipe", id = UrlParameter.Optional});
-
-            routes.MapRoute(
                 name: "Other",
                 url: "recept/andra-tacopajer",
                 defaults: new { controller = "Recept", action = "Index" });
 
             routes.MapRoute(
-                name: "LCHF",
-                url: "recept/lchf-tacopaj",
-                defaults: new { controller = "Recept", action = "Lchf" });
-
-            routes.MapRoute(
-                name: "Vegetarisk",
-                url: "recept/vegetarisk-tacopaj",
-                defaults: new { controller = "Recept", action = "Vegetarisk" });
-
-            routes.MapRoute(
-                name: "Kyckling",
-                url: "recept/kyckling-tacopaj",
-                defaults: new { controller = "Recept", action = "Kyckling" });
+                name: "Recepten",
+                url: "recept/{groupName}",
+                defaults: new { controller = "Recept", action = "Recipe", groupName = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",

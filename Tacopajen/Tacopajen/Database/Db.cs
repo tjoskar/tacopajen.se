@@ -89,7 +89,8 @@ namespace Tacopajen.Database
                     Id = dataReader["id"].ToString(),
                     ImgUrl = dataReader["ImageUrl"].ToString(),
                     Name = dataReader["Name"].ToString(),
-                    Intro = dataReader["Intro"].ToString()
+                    Intro = dataReader["Intro"].ToString(),
+                    Url = dataReader["Url"].ToString()
                 };
                 list.Add(temp);
             }
@@ -131,10 +132,10 @@ namespace Tacopajen.Database
             return true;
         }
 
-        public Recipe GetRecipe(Guid guid)
+        public Recipe GetRecipe(string name)
         {
             OpenConnection();
-            var sql = "Select * from Recipe Where id = '" + guid+"'";
+            var sql = "Select * from Recipe Where Url = '" + name + "'";
             var cmd = new MySqlCommand(sql, _connection);
             var dataReader = cmd.ExecuteReader();
             Recipe recipe = null;
@@ -146,7 +147,8 @@ namespace Tacopajen.Database
                     Id = dataReader["id"].ToString(),
                     ImgUrl = dataReader["ImageUrl"].ToString(),
                     Name = dataReader["Name"].ToString(),
-                    Intro = dataReader["Intro"].ToString()
+                    Intro = dataReader["Intro"].ToString(),
+                    Url = dataReader["Url"].ToString()
                 };
             }
             CloseConnection();

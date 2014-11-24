@@ -11,16 +11,16 @@ namespace Tacopajen.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "För alla som älskar tacopaj!";
-            const string id = "FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA83";
             var dbcon = new Db();
+            var recipe = dbcon.GetRecipe("tacopaj");
             var model = new RecipeViewModel
             {
                 OtheRecipes = dbcon.GetAllRecipe(),
-                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
-                Ingredients = dbcon.GetAllIngredients(Guid.Parse(id)),
-                Comments = new CommentModel(){ Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)), RecipeId = id},
-                Rating = dbcon.GetRating(Guid.Parse(id)),
-                RatingCount = dbcon.GetRatingCount(Guid.Parse(id))
+                Recipe = recipe,
+                Ingredients = dbcon.GetAllIngredients(Guid.Parse(recipe.Id)),
+                Comments = new CommentModel() { Comments = dbcon.GetCommentsByRecipe(Guid.Parse(recipe.Id)), RecipeId = recipe.Id },
+                Rating = dbcon.GetRating(Guid.Parse(recipe.Id)),
+                RatingCount = dbcon.GetRatingCount(Guid.Parse(recipe.Id))
             };
 
 

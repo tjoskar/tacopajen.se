@@ -10,14 +10,15 @@ namespace Tacopajen.Controllers
         private RecipeViewModel GetRecipeModel(string id)
         {
             var dbcon = new Db();
+            var recipe = dbcon.GetRecipe(id);
             return new RecipeViewModel
             {
                 OtheRecipes = dbcon.GetAllRecipe(),
-                Recipe = dbcon.GetRecipe(Guid.Parse(id)),
-                Ingredients = dbcon.GetAllIngredients(Guid.Parse(id)),
-                Comments = new CommentModel() { Comments = dbcon.GetCommentsByRecipe(Guid.Parse(id)), RecipeId = id },
-                Rating = dbcon.GetRating(Guid.Parse(id)),
-                RatingCount = dbcon.GetRatingCount(Guid.Parse(id))
+                Recipe = recipe,
+                Ingredients = dbcon.GetAllIngredients(Guid.Parse(recipe.Id)),
+                Comments = new CommentModel() { Comments = dbcon.GetCommentsByRecipe(Guid.Parse(recipe.Id)), RecipeId = recipe.Id },
+                Rating = dbcon.GetRating(Guid.Parse(recipe.Id)),
+                RatingCount = dbcon.GetRatingCount(Guid.Parse(recipe.Id))
             };
         }
 
@@ -31,36 +32,9 @@ namespace Tacopajen.Controllers
             return View(model);
         }
 
-        public ActionResult Lchf()
+        public ActionResult Recipe(string groupName)
         {
-            ViewBag.Title = "LCHF";
-            return View(
-                "../Home/Index",
-                GetRecipeModel("FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA84")
-            );
-        }
-
-        public ActionResult Vegetarisk()
-        {
-            ViewBag.Title = "Vegetarisk";
-            return View(
-                "../Home/Index",
-                GetRecipeModel("FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA85")
-            );
-        }
-
-        public ActionResult Kyckling()
-        {
-            ViewBag.Title = "Kyckling";
-            return View(
-                "../Home/Index",
-                GetRecipeModel("FA8EFDED-3DEB-49BF-A4BE-8EC0A05BDA86")
-            );
-        }
-
-        public ActionResult Recipe(string id)
-        {
-            var model = GetRecipeModel(id);
+            var model = GetRecipeModel(groupName);
             ViewBag.Title = model.Recipe.Name;
             return View(
                 "../Home/Index",

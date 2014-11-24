@@ -20,24 +20,9 @@ namespace Tacopajen
                 defaults: new { controller = "Recept", action = "Index" });
 
             routes.MapRoute(
-                name: "LCHF",
-                url: "recept/lchf-tacopaj",
-                defaults: new { controller = "Recept", action = "Lchf" });
-
-            routes.MapRoute(
-                name: "Vegetarisk",
-                url: "recept/vegetarisk-tacopaj",
-                defaults: new { controller = "Recept", action = "Vegetarisk" });
-
-            routes.MapRoute(
-                name: "Kyckling",
-                url: "recept/kyckling-tacopaj",
-                defaults: new { controller = "Recept", action = "Kyckling" });
-
-            routes.MapRoute(
                 name: "Recepten",
-                url: "recept/{id}",
-                defaults: new { controller = "Recept", action = "Recipe", id = UrlParameter.Optional }
+                url: "recept/{groupName}",
+                defaults: new { controller = "Recept", action = "Recipe", groupName = UrlParameter.Optional }
             );
 
             routes.MapRoute(

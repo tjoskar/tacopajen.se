@@ -15,11 +15,6 @@ namespace Tacopajen
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
-                name: "Recept",
-                url: "recept",
-                defaults: new {controller = "Recept", action = "Recipe", id = UrlParameter.Optional});
-
-            routes.MapRoute(
                 name: "Other",
                 url: "recept/andra-tacopajer",
                 defaults: new { controller = "Recept", action = "Index" });
@@ -38,6 +33,12 @@ namespace Tacopajen
                 name: "Kyckling",
                 url: "recept/kyckling-tacopaj",
                 defaults: new { controller = "Recept", action = "Kyckling" });
+
+            routes.MapRoute(
+                name: "Recepten",
+                url: "recept/{id}",
+                defaults: new { controller = "Recept", action = "Recipe", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",

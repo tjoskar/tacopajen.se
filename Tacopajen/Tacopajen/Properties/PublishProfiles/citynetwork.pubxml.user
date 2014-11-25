@@ -11,85 +11,85 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:12</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:12</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/19/2014 10:14:02</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:14</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:12</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:10</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:11</publishTime>
     </File>
     <File Include="bin/Tacopajen.dll">
-      <publishTime>11/23/2014 12:54:04</publishTime>
+      <publishTime>11/25/2014 09:35:14</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:01:13</publishTime>
     </File>
     <File Include="Content/bg.jpg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/19/2014 11:54:43</publishTime>
     </File>
     <File Include="Content/Font/valtechse.eot">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:23</publishTime>
     </File>
     <File Include="Content/Font/valtechse.svg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:23</publishTime>
     </File>
     <File Include="Content/Font/valtechse.ttf">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:23</publishTime>
     </File>
     <File Include="Content/Font/valtechse.woff">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:23</publishTime>
     </File>
     <File Include="Content/sitemap.xml">
-      <publishTime>11/23/2014 11:57:13</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Content/tacopaj/grund.jpg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Content/tacopaj/kyckling.jpg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Content/tacopaj/lchf.jpg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Content/tacopaj/vegetarisk.jpg">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/19/2014 10:14:03</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/20/2014 11:02:17</publishTime>
@@ -131,7 +131,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/23/2014 11:04:00</publishTime>
     </File>
     <File Include="Views/Add/Index.cshtml">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/25/2014 09:25:27</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>11/20/2014 11:19:14</publishTime>
@@ -140,28 +140,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 11:04:29</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/23/2014 12:31:27</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Views/Recept/Index.cshtml">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/25/2014 09:25:27</publishTime>
     </File>
     <File Include="Views/Recipe/Index.cshtml">
       <publishTime>11/19/2014 11:14:08</publishTime>
     </File>
     <File Include="Views/Shared/Comments.cshtml">
-      <publishTime>11/23/2014 11:04:00</publishTime>
+      <publishTime>11/24/2014 12:28:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/23/2014 12:18:42</publishTime>
+      <publishTime>11/25/2014 09:31:55</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>11/20/2014 11:02:17</publishTime>
+      <publishTime>11/17/2014 12:00:55</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/23/2014 11:18:07</publishTime>
+      <publishTime>11/25/2014 09:35:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -139,9 +139,12 @@
     <Content Include="Content\Font\valtechse.svg" />
     <Content Include="Content\sitemap.xml" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\tacopaj\aosdk.jpg" />
+    <Content Include="Content\tacopaj\asda.jpg" />
     <Content Include="Content\tacopaj\grund.jpg" />
     <Content Include="Content\tacopaj\kyckling.jpg" />
     <Content Include="Content\tacopaj\lchf.jpg" />
+    <Content Include="Content\tacopaj\maddes.jpg" />
     <Content Include="Content\tacopaj\vegetarisk.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Tacopajen.Database;
 using Tacopajen.Models;
@@ -11,9 +12,10 @@ namespace Tacopajen.Controllers
         {
             var dbcon = new Db();
             var recipe = dbcon.GetRecipe(id);
+            var rnd = new Random();
             return new RecipeViewModel
             {
-                OtheRecipes = dbcon.GetAllRecipe(),
+                OtheRecipes = dbcon.GetAllRecipe().ToList().OrderBy(x => rnd.Next()).Take(4),
                 Recipe = recipe,
                 Ingredients = dbcon.GetAllIngredients(Guid.Parse(recipe.Id)),
                 Comments = new CommentModel() { Comments = dbcon.GetCommentsByRecipe(Guid.Parse(recipe.Id)), RecipeId = recipe.Id },

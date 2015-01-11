@@ -2,29 +2,28 @@
 
 <img itemprop="photo" src="@Model.Recipe.ImgUrl" class="display-none" />
 <div class="cover-img" style="background-image: url(@Model.Recipe.ImgUrl)">
-    <h1 itemprop="name">@Model.Recipe.Name</h1>
+    <h1 class="image-text" itemprop="name">@Model.Recipe.Name</h1>
 </div>
 
 <div class="wrapper">
     <div class="sidebar">
         <h1>Ingredienser</h1>
         <h3>Pajdeg</h3>
-        <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
+        <div itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
             @foreach (var ingredient in Model.Ingredients.Deg)
             {
-
-                <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
+                <span class="ingredient"><span itemprop="name">@ingredient.IngredientName</span> <span itemprop="amount">@ingredient.Quantity</span>, </span>
             }
-        </ul>
+        </div>
 
         <h3>Fyllning</h3>
-        <ul itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
+        <div itemprop="ingredient" itemscope itemtype="http://data-vocabulary.org/RecipeIngredient">
             @foreach (var ingredient in Model.Ingredients.Fyll)
             {
 
-                <li><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span></li>
+                <span class="ingredient"><span itemprop="name">@ingredient.IngredientName</span>, <span itemprop="amount">@ingredient.Quantity</span>, </span>
             }
-        </ul>
+        </div>
     </div>
 
     <div class="main-content">

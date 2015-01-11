@@ -5,10 +5,10 @@
 
 <div class="wrapper">
     <div class="wrapper-list">
-        <ul class="list">
+        <div class="list">
             @foreach (var recipe in Model.Recipes)
             {
-                <li class="list-element left">
+                <span class="list-element left">
                     <div class="list-box">
                         <a href="/recept/@recipe.Url">
                             <img class="list-image" src="@recipe.ImgUrl" />
@@ -17,8 +17,8 @@
                             <div class="read-more"></div>
                         </a>
                     </div>
-                </li>
+                </span>
             }
-        </ul>
+        </div>
     </div>
 </div>

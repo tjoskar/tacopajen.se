@@ -6,6 +6,7 @@
     font-style: normal;
 }
 
+
 body, html {
     width: 100%;
     height: 100%;
@@ -138,14 +139,14 @@ a.list-link {
     font-family: Helvetica;
 }
 
-ul.list {
+.list {
     font-size: 0;
     padding: 0;
     background-color: #fff;
     padding-top: 20px;
 }
 
-li.list-element {
+.list-element {
     width: 25%;
     display: inline-block;
     vertical-align: top;
@@ -185,12 +186,15 @@ li.list-element {
     width: 100%;
     height: 300px;
     background-image: url(http://cdn.arla.se/Files/4287675424/9d0c0d9a-04d5-4a03-9945-8e607313b985.jpg);
-    background-size: cover;
+    background-size:cover;
     position: relative;
+}
+.ingredient {
+    display: block;
 }
 
 .wrapper {
-    display: flex;
+    /*display: flex;*/
     background-color: #fff;
 }
 
@@ -273,11 +277,11 @@ li.list-element {
 
 .comment .left {
     border-right: 1px solid #FAC36A;
-    width: 20%;
+    width: 25%;
 }
 
 .comment .right {
-    width: 80%;
+    width: 75%;
 }
 
 h2.horizontal-line {

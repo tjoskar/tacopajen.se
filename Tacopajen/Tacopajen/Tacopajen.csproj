@@ -135,6 +135,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\480.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\Font\valtechse.svg" />
     <Content Include="Content\sitemap.xml" />

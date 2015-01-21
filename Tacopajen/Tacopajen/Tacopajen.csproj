@@ -138,6 +138,7 @@
     <Content Include="Content\480.css" />
     <Content Include="Content\bg.jpg" />
     <Content Include="Content\Font\valtechse.svg" />
+    <Content Include="Content\Main.js" />
     <Content Include="Content\sitemap.xml" />
     <Content Include="Content\style.css" />
     <Content Include="Content\tacopaj\aosdk.jpg" />

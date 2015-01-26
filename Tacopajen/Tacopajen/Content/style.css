@@ -180,6 +180,7 @@ a.list-link {
     width: 70%;
     box-sizing: border-box;
     padding: 0 20px;
+    float: left;
 }
 
 .cover-img {

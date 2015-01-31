@@ -2,7 +2,7 @@
 ===================
 
 ##### What is this?
-[tacopajen.se](http://tacopajen.se) is a simple webpage by and for taco pie lovers to share the best taco pie recipes.
+[tacopajen.se](http://tacopajen.se) is a simple webpage, by and for taco pie lovers, to share the best taco pie recipes.
 
 ##### The code and the commit messages look awful!
 Yeah, I know.. and I'm sorry for that but [tacopajen.se](http://tacopajen.se) was made on airports, bus stops etc. and in extremely short time periods, meaning each development round lasted only for a few minutes.

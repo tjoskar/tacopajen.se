@@ -245,3 +245,5 @@ ValtechTalangSeleniumTest/Printscreens/*.png
 
 ### Logging output folder ###
 ValtechTalang/App_Data/
+
+/Tacopajen/Tacopajen/Database/DBCredentials.cs
